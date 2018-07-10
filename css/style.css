@@ -1,0 +1,50 @@
+*{
+    font-family: Arial,sans-serif;
+    margin: 0;
+}
+div{
+    border: 1px solid black;
+}
+html, body {
+    height: 100%;
+}
+.wrapper{
+    min-height: 100%;
+}
+.nav{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: gray;
+    border-bottom: solid 10px green;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+.navigator{
+    display: inline-block;
+    width: 10%;
+    max-width: 150px;
+}
+.menu{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.container{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.header{
+    margin-top: 5%;
+}
+.content{
+
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 60%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}

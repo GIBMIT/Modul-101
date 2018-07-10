@@ -1,0 +1,456 @@
+/* Allgemeine Definitionen */
+
+/* Schriftart für die ganze Webseite */
+* {
+    font-family: Arial, sans-serif;
+}
+
+/* Grösse des Bodys sowie HTML-Tags auf 100% festlegen */
+html, body {
+    height: 100%;
+}
+
+/* Re-stilierungen */
+
+/* Alle h1 Titel bekommen die Schrift Courier New (alternativ Sans-serif),
+   werden mit einer Grösse von 300% dargestellt und sind zentriert.*/
+h1 {
+    font-family: "Courier New", sans-serif;
+    font-size: 300%;
+    text-align: center;
+}
+
+/* Alle h3 Titel haben oberhalb einen Abstand von 30px und unterhalb einen
+   Abstand von 10px */
+h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Links werden Grün-Gelb und ohne Unterstrich definiert */
+a {
+    color: greenyellow;
+    text-decoration: none;
+}
+
+/* Links innerhalb einer Content Box werden Grün (RGB #12e000) definiert */
+.content a {
+    color: #12e000;
+}
+
+/* Hier wird definiert, dass Links innerhalt einer Content Box schwarz werden,
+   wenn man mit der Maus darüber ist */
+.content a:hover, #impressum a:hover {
+    color: black;
+}
+
+/* Navigatoren */
+
+/* Navigationsleiste wird mit der Hintergrundfarbe Grau definiert. Unterhalb hat
+   sie einen 10px breiten, durchgezogenen, grün-gelben Strich. Ebenso hat die
+   Box einen Schatten. Sie ist am oberen Rand fixiert. Die Navigationsleiste hat
+    keinen weissen Rand, sie liegt bündig an. Ausserdem ist sie per Z-Index eines
+    der obersten Elemente. */
+.nav {
+    background-color: gray;
+    border-bottom: solid 10px greenyellow;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+/* Navigatoren werden als Inline-Block definiert. Das heisst, dass sie nebeneinander
+   abgebildet werden. Sie haben eine maximale Breite von 160px. Oberhalb sowie unterhalb
+   ist ein Abstand von 5px innerhalb der Box. Ausserhalb der Box ist rechts ein
+   Abstand von -5px. Ausserdem wird der Cursor zu einem Finger, wenn man über der Box ist */
+.navigator {
+    display: inline-block;
+    max-width: 160px;
+    padding: 15px 5px;
+    margin-right: -5px;
+    cursor: pointer;
+}
+
+/* Definieren, dass wenn die Maus über den Navigatoren ist, dass der Hintergrund
+   sich zu der Farbe Hellgrau (RGB #b3b3b3) verändert sowie dass ein Schatten um
+   die Box erscheint */
+.navigator:hover, .navigator-dropdown:hover {
+    background-color: #b3b3b3;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Hier wird definiert, dass nur die Navigatorenkinder a Schwarz gefärbt werden,
+   wennn die Maus darüber ist */
+.navigator:hover > a {
+    color: black;
+}
+
+/* Nur a (Kind von span(Kind von div(Kind von navigator-dropdown))) Schwarz
+   färben, wennn die Maus darüber ist */
+.navigator-dropdown:hover > div > span > a {
+    color: black;
+}
+
+/* Aktive Klasse definieren */
+.active {
+    background-color: darkgray;
+}
+
+/* Dropdown liste */
+/* Den Code zur CSS Dropdownliste habe ich gefunden auf:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   (www.w3schools.com/css/css_dropdowns.asp)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+/* Navigator als Dropdown definieren */
+.navigator-dropdown {
+    position: relative;
+    display: inline-block;
+    max-width: 160px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: -4px;
+}
+
+/* Dropdown Inhalt definieren (falls Maus nicht über dem Dropdownnavigator ist) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-left: -5px;
+    margin-top: 14px;
+    padding-top: 4px;
+    background-color: gray;
+    color: greenyellow;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Die als Ungeordente List definierten Unterpünkte neu formatieren */
+.dropdown-content li {
+    list-style: none;
+    margin-left: -40px;
+    padding: 10px;
+    color: greenyellow;
+}
+
+/* Den ersten Eintrag in der Dropdownliste neu formatieren */
+#dropdown-first {
+    margin-top: -20px;
+}
+
+/* Den letzten Eintrag in der Dropdownliste neu formatieren */
+#dropdown-last {
+    margin-bottom: -20px;
+}
+
+/* Die Dropdownliste ausklappen, wenn die Maus über dem Dropdownnavigator ist */
+.navigator-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Wenn die Maus über li (Kind von ul(Kind von dropdown-content)) ist, soll a
+   schwarz eingefärbt werden */
+.dropdown-content > ul > li:hover a {
+    color: black;
+}
+
+/* Wenn die Maus über li (Kind von ul(Kind von dropdown-content)) ist, soll li
+   den Hintergrund Grau (RGB #b3b3b3) eingefärben sowie einen Schatten um die
+   Box erhalten */
+.dropdown-content > ul > li:hover {
+    background-color: #b3b3b3;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Dropdown-Code ENDE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+/* Body content */
+
+/* Der Wrapper umfasst den ganzen Inhalt der Webseite (inkl. Navigationsleiste)
+   und hat eine mindest Höhe von 100% */
+.wrapper {
+    min-height: 100%;
+}
+
+/* Der Container verschiebt den ganzen Inhalt 20% in die Mitte und hat eine
+   Breite von 60% */
+.container {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* Der Content ist die Box für den Textinhalt der Webseite und 12% zentriert
+   in der Mitte des Containers. Der content hat oberhalb und unterhalb
+   (ausserhalb der Box) einen Abstand von 70px und 100px(der Bereich, welcher
+   von Footer und der Navigationsleiste verdeckt wird) */
+.content {
+    display: block;
+    margin-top: 70px;
+    margin-right: 12%;
+    margin-left: 12%;
+    padding-bottom: 100px;
+}
+
+/* Der Footer ist eine Fussleiste, welche am Browser "Boden" befestigt ist mit
+   allgemeinen Informationen befüllt wird. Die Breite wird von der vorgehenden
+   Klasse geerbt. Die Hintergrundfarbe ist Grau und die gesamte Box hat einen
+   Schatten */
+.footer {
+    bottom: 0;
+    width: inherit;
+    background-color: gray;
+    position: fixed;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Der Text im Footer wird als Block definiert. Die Breite der Textbox ist 150px
+   Links ist innerhalb der Box ein Abstand von 30px. Diese Box floatet links.
+   Die Schriftfarbe innherhalb dieser Box ist Weiss. */
+.footer p {
+    display: block;
+    width: 150px;
+    padding-left: 30px;
+    float: left;
+    color: white;
+}
+
+/* Der Text "Impressum" wird neben dem Björn Pfoster rechts floatend angezeigt.
+   Dabei ist die ID impressum als Inline-Block definiert. Die gesamte Box hat
+   eine Breite von 100px und innerhalb der Box einen Abstand von 30px */
+#impressum {
+    display: inline-block;
+    width: 100px;
+    padding-right: 30px;
+    float: right;
+}
+
+/* Hier wird die Box für das Bild als Block definiert. Die Position ist
+   absolut. */
+.image {
+    display: block;
+    position: absolute;
+}
+
+/* Hier wird jedes Bild so definiert, dass es immer 100% seiner originalen Breite
+   hat.*/
+.image img, .image2 img, .image3 img {
+    width: 100%;
+}
+
+/* Hier wird die Box für das Bild 2 als Block definiert. Die Position ist auch
+   hier absolut. Die Höhe wird automatisch berechnet, wobei jedoch die maximale
+   Höhe 361px beträgt. Die Breite passt sich automatisch an. */
+.image2 {
+    display: block;
+    position: absolute;
+    height: auto;
+    max-height: 361px;
+    width: auto;
+}
+
+/* Hier wird die Box für das Bild 3 als Block definiert. Ebenso wird das Bild
+   zentriert. */
+.image3 {
+    display: block;
+    text-align: center;
+}
+
+/* Den Code zur CSS Bildeffekten habe ich gefunden auf:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   (https://codepen.io/nxworld/pen/ZYNOBZ)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   * Schwarz-weiss Animation ist Effekt 8
+   * Blur-Animation ist Effekt 7
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+/* Das Bild (image) wird schwarz-weiss eingefärbt und erhält seinen speziell
+   abgrundeten Rand. Ausserdem wird eine Veränderung innerhalb von 0.3 Sekunden
+   (ease-in-out) erstellt. Ebenso erhält das Bild einen Schatten. */
+.image img {
+    border-radius: 50px 150px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Bild  wird farbig, wenn die Maus über dem Bild ist.*/
+.image:hover img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+
+}
+
+/* Das Bild 3 wird um 10px verschwommen definiert. Ebenfalls wird hier eine
+   Veränderung innerhalb von 0.3 Sekunden (ease-in-out) definiert. */
+.image3 img {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    width: auto;
+}
+
+/* Das Bild 3 wird scharf, wenn die Maus über dem Bild ist. */
+.image3:hover img {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Bildeffekte ENDE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+/* Die definition für den Text neben dem Bild erfolgt hier als Inline-Block.
+   Links, ausserhalb der Box ist ein Abstand von 350px. Innerhalb der Box ist
+   links ein Abstand von 20px. Die Höhe passt sich automatisch an. Die maximale
+   Höhe ist 400px. */
+.image-list {
+    display: inline-block;
+    margin-left: 350px;
+    padding-left: 20px;
+    height: auto;
+    max-height: 400px;
+}
+
+/* Die definition für den Text 2 neben dem Bild 2 erfolgt hier als Inline-Block.
+   Links, ausserhalb der Box ist ein Abstand von 500px. Innerhalb der Box ist
+   links ein Abstand von 20px. Die Höhe passt sich automatisch an. Die maximale
+   Höhe ist 361px. Die Breite ist 40%. */
+.image-list2 {
+    display: inline-block;
+    margin-left: 500px;
+    padding-left: 20px;
+    height: auto;
+    max-height: 361px;
+    width: 40%;
+}
+
+/* Der Paragraph innerhalb einer image-list2 wird mit der Schriftart Courier New,
+   alternativ Sans-serif definiert. Die Schriftfarbe ist Schwarz. Oberhalb und
+   Rechts hat es ausserhalb hat es einen von 90px, respektive 20px. Innerhalb
+   der Box hat es Links einen Abstand von 50px und oben sowie unten je einen
+   Abstand von 10px. Die Box hat einen soliden, 2px breiten, grauen Rand. Der
+   Radius des Randes an den Ecken ist 5px. Diese Box hat einen Schatten. */
+.image-list2 > p {
+    font-family: "Courier New", sans-serif;
+    color: #000;
+    margin-top: 90px;
+    margin-right: 20px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 2px grey;
+    border-radius: 5px;
+    box-shadow: 5px 3px 6px black;
+}
+
+/* Wenn die Maus über dem Paragraph von image-list 2 ist, wird der Hintergrund
+   Blau (RGB #cce5ff) eingefärbt. */
+.image-list2 p:hover {
+    background-color: #cce5ff;
+}
+
+/* Die image-list3 ist als Inline-Block definiert. Ausserhalb der Box ist Links
+   ein Abstand von 500px. Innerhalb ist ein Abstand von 30px. Die Höhe wird
+   automatisch berechnet, jedoch maximal 400px. */
+.image-list3 {
+    display: inline-block;
+    margin-left: 500px;
+    padding-left: 30px;
+    height: auto;
+    max-height: 400px;
+}
+
+/* li innerhalb von ul innerhalb von image-list3 hat innerhalb der Box einen
+   Abstand vom Boden von 5%. */
+.image-list3 ul li {
+    padding-bottom: 5%;
+}
+
+/* Die Klasse image-wrapper hat eine Breite von 100%. */
+.image-wrapper {
+    width: 100%;
+}
+
+/* Der Inhalt von content-below-img hat ausserhalb der Box einen Abstand
+   oberhalb von 760px. */
+.content-below-img {
+    margin-top: 760px;
+}
+
+/* Der Inhalt von content-below-img hat ausserhalb der Box einen Abstand
+   oberhalb von 15%. */
+.content-below-img2 {
+    margin-top: 15%;
+}
+
+/* Tabellenformatierung (Lebenslauf) */
+
+/* Tabellenbreite wird auf 100% definiert. */
+.table1 {
+    width: 100%;
+}
+
+/* Absatzschaltung wie im PDF wird erzeugt. */
+.break-tr td {
+    padding-top: 15px;
+}
+
+/* Der Text innerhalb von spec-td1 hat links, ausserhalb der Box, einen Abstand
+   von 3%. */
+.spec-td1 {
+    padding-left: 3%;
+}
+
+/* Die Tabelle 2 hat eine Breite von 100%. */
+.table2 {
+    width: 100%;
+}
+
+/* Das 2. td Tag innerhalb der Tabelle 2 hat links einen Abstand innerhalb der
+   Box von 10% */
+.table2 td + td {
+    padding-left: 10%;
+}
+
+/* Damit Die Anker auf der Seite hobbies.html nich unter der Navigationsbar
+   verschwinden, wird bei den Ankern #djing und #sociallife die ganze Box um 70
+   Pixel nach unten verschoben (padding-top: 60px). Damit dann aber nicht eine
+   riesen Lücke zwischen dem Anker #djing und #sociallife sowie zwischen
+   #sociallife und #coding wird der entstandene Freiraum mit margin-bottom:
+   -60px aufgefüllt. Die nächste Box rückt eigentlich über die aktuelle Box,
+   verschiebt ihren Inhalt wieder zurück an den "vorherigen" Platz. */
+#djing, #sociallife {
+    padding-top: 60px;
+    margin-bottom: -60px;
+}
+
+/* Beim Anker #coding muss unten ja nichts nachgrückt werden, also ist hier auch
+   ein padding-top von 70px erfordert.*/
+#coding {
+    padding-top: 60px;
+}
+
+/* Zwischen der unordered list und #djing ist jetzt ein "Loch" entstanden. Dies
+   wird mit margin-bottom: -60px auf der ID categories (welche auf der ul liegt)
+   wieder aufgefüllt. */
+#categories {
+    margin-bottom: -60px;
+}
